@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="BiNZ Sports Analytics — sports probability and pick-tracking tools.">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<title>BiNZ | Sports Analytics</title>
+<style>
+:root{--bg:#08090b;--panel:#111317;--panel2:#171a20;--gold:#d7ad52;--gold2:#f0cf7a;--text:#f4f4f2;--muted:#a4a8b0;--line:#2a2e36;--green:#55c58a;--red:#ed7777}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#252015 0%,var(--bg) 48%);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+header{position:sticky;top:0;z-index:5;background:#090a0ceF;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px max(16px,env(safe-area-inset-left));display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:2px;font-size:22px}.brandmark{width:34px;height:34px;border:1px solid var(--gold);border-radius:10px;display:grid;place-items:center;color:var(--gold);font-size:18px}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:2.5px;font-weight:600;margin-top:-4px}
+.status{font-size:11px;color:var(--green);border:1px solid #285b43;background:#10251b;padding:5px 8px;border-radius:99px}
+main{max-width:1000px;margin:auto;padding:22px 16px 70px}.hero{padding:24px 4px 22px}.eyebrow{color:var(--gold);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:11px}.hero h1{font-size:clamp(30px,7vw,48px);line-height:1.04;margin:9px 0 12px;letter-spacing:-1.5px}.hero h1 span{color:var(--gold2)}.hero p{color:var(--muted);max-width:620px;margin:0}.notice{margin-top:18px;border:1px solid #5b4823;background:#211b10;color:#e9d7ad;border-radius:12px;padding:11px 13px;font-size:12px}
+nav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 20px}nav a{text-decoration:none;color:var(--muted);border:1px solid var(--line);background:#111318;padding:10px 5px;border-radius:10px;text-align:center;font-size:12px;font-weight:700}nav a:active,nav a:hover{border-color:var(--gold);color:var(--gold2)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:linear-gradient(155deg,#171a20,#0f1115);border:1px solid var(--line);border-radius:16px;padding:17px;box-shadow:0 8px 26px #0003;min-width:0}.card.full{grid-column:1/-1}.card h2{font-size:18px;margin:0 0 4px}.sub{font-size:12px;color:var(--muted);margin:0 0 15px}
+label{display:block;font-size:12px;color:#c4c7cc;margin:10px 0 5px}input,select{width:100%;min-height:43px;background:#090b0f;border:1px solid #343944;border-radius:9px;padding:10px 11px;color:var(--text);font:inherit;outline:none}input:focus,select:focus{border-color:var(--gold)}.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+button,.btn{border:0;border-radius:10px;background:linear-gradient(135deg,#e8c66f,#b98a32);color:#17130a;font-weight:900;padding:12px 15px;margin-top:13px;cursor:pointer;width:100%;font-size:13px}button.secondary{background:#242832;color:#eee;border:1px solid #3b414d}button.danger{background:#402323;color:#ffdede;border:1px solid #754040}
+.result{margin-top:13px;border:1px solid #3b3424;background:#17150f;border-radius:11px;padding:12px;min-height:52px}.result strong{color:var(--gold2);font-size:20px}.result small{display:block;color:var(--muted);margin-top:3px}.metric{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid #2b2b2b}.metric:last-child{border:0}.good{color:var(--green)}.bad{color:var(--red)}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px}th,td{text-align:left;padding:9px 7px;border-bottom:1px solid var(--line)}th{color:var(--gold2);font-weight:800}td{color:#d8d9dc}.tablewrap{overflow:auto}
+footer{margin-top:25px;text-align:center;color:#777e89;font-size:11px}.empty{color:var(--muted);font-size:13px;padding:15px 0}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.card.full{grid-column:auto}nav{grid-template-columns:repeat(2,1fr)}main{padding-top:14px}.hero{padding-top:18px}.card{padding:15px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="brandmark">B</div><div>BiNZ<small>SPORTS ANALYTICS</small></div></div><div class="status">● PERSONAL TOOLKIT</div></header>
+<main>
+<section class="hero"><div class="eyebrow">Numbers over noise</div><h1>Make your read.<br><span>Know your edge.</span></h1><p>A clean workspace for evaluating odds, estimating player props, modeling hypothetical injury changes, and tracking your picks.</p><div class="notice">No live sportsbook odds, official injury feed, or guaranteed predictions are connected. Enter your own data. For analysis and record-keeping only.</div></section>
+<nav><a href="#value">Value Finder</a><a href="#props">Player Props</a><a href="#injury">Injury Impact</a><a href="#tracker">Pick Tracker</a></nav>
+<section class="grid">
+<article class="card" id="value"><h2>01 · Value Finder</h2><p class="sub">Compare your estimated probability with the price.</p>
+<label>American odds</label><input id="odds" type="number" value="-110" step="1">
+<label>Your estimated win probability (%)</label><input id="prob" type="number" value="55" min="0.1" max="99.9" step=".1">
+<button onclick="valueCalc()">Calculate value</button><div class="result" id="valueResult" aria-live="polite">Enter your numbers and calculate.</div></article>
+<article class="card" id="props"><h2>02 · Player Props</h2><p class="sub">Normal-distribution estimate using your inputs.</p>
+<label>Player / prop label</label><input id="player" placeholder="e.g. Player points">
+<div class="row"><div><label>Projected mean</label><input id="mean" type="number" value="25" step=".1"></div><div><label>Standard deviation</label><input id="sd" type="number" value="6" min=".1" step=".1"></div></div>
+<div class="row"><div><label>Prop line</label><input id="line" type="number" value="24.5" step=".5"></div><div><label>Side</label><select id="side"><option value="over">Over</option><option value="under">Under</option></select></div></div>
+<label>American odds</label><input id="propOdds" type="number" value="-110">
+<button onclick="propCalc()">Estimate prop</button><div class="result" id="propResult" aria-live="polite">Add a projection and line.</div></article>
+<article class="card" id="injury"><h2>03 · Injury Impact</h2><p class="sub">Hypothetical scenario calculator—not a medical or team report.</p>
+<label>Player / scenario</label><input id="injName" placeholder="e.g. Starting guard unavailable">
+<div class="row"><div><label>Baseline team points</label><input id="basePts" type="number" value="112"></div><div><label>Estimated change (points)</label><input id="deltaPts" type="number" value="-4" step=".5"></div></div>
+<div class="row"><div><label>Baseline win probability (%)</label><input id="baseWin" type="number" value="52" min="0" max="100"></div><div><label>Win probability change (pp)</label><input id="deltaWin" type="number" value="-3" step=".5"></div></div>
+<button onclick="injuryCalc()">Model scenario</button><div class="result" id="injResult">Enter a hypothetical adjustment.</div></article>
+<article class="card" id="tracker"><h2>04 · Pick Tracker</h2><p class="sub">Saved on this device only. Export a CSV backup anytime.</p>
+<label>Pick / selection</label><input id="pickName" placeholder="e.g. Team A -3.5">
+<div class="row"><div><label>Odds (American)</label><input id="pickOdds" type="number" value="-110"></div><div><label>Stake (units)</label><input id="stake" type="number" value="1" min="0" step=".1"></div></div>
+<label>Notes (optional)</label><input id="pickNotes" placeholder="Reasoning / market">
+<button onclick="addPick()">Add pick</button><div class="result" id="trackerSummary">No picks tracked yet.</div>
+<div class="tablewrap"><table><thead><tr><th>Pick</th><th>Odds</th><th>Units</th><th>Result</th><th></th></tr></thead><tbody id="pickRows"></tbody></table></div>
+<div class="row"><button class="secondary" onclick="exportCSV()">Export CSV</button><button class="secondary" onclick="clearPicks()">Clear tracker</button></div></article>
+<article class="card full"><h2>How to use BiNZ</h2><p class="sub">A simple workflow for disciplined analysis.</p><div class="metric"><span>1. Enter the market price</span><span>→</span></div><div class="metric"><span>2. Use your own probability estimate</span><span>→</span></div><div class="metric"><span>3. Compare edge and expected value</span><span>→</span></div><div class="metric"><span>4. Track the result honestly</span><span>✓</span></div><p class="sub" style="margin:12px 0 0">Calculations are estimates based on the inputs you provide. They do not account for every market condition, correlation, lineup change, or source of uncertainty.</p></article>
+</section>
+<footer>BiNZ · Sports Analytics · Your data stays in this browser unless you export it.</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+function implied(odds){odds=Number(odds);if(!Number.isFinite(odds)||odds===0)throw Error("Enter valid non-zero American odds.");return odds>0?100/(odds+100):(-odds)/((-odds)+100)}
+function fmt(n,d=2){return Number(n).toFixed(d)}
+function valueCalc(){try{let o=+$("odds").value,p=+$("prob").value/100;if(!Number.isFinite(o)||o===0||p<=0||p>=1)throw Error("Enter valid odds and a probability between 0 and 100.");let ip=implied(o),dec=o>0?1+o/100:1+100/(-o),edge=p-ip,ev=p*(dec-1)-(1-p);$("valueResult").innerHTML=`<div class="metric"><span>Implied probability</span><b>${fmt(ip*100)}%</b></div><div class="metric"><span>Your probability</span><b>${fmt(p*100)}%</b></div><div class="metric"><span>Probability edge</span><b class="${edge>=0?'good':'bad'}">${edge>=0?'+':''}${fmt(edge*100)} pp</b></div><div class="metric"><span>Expected value per 1 unit</span><b class="${ev>=0?'good':'bad'}">${ev>=0?'+':''}${fmt(ev)} units</b></div><small>Before fees, limits, and model error. Positive estimates are not guarantees.</small>`}catch(e){$("valueResult").textContent=e.message}}
+function erf(x){let s=x<0?-1:1;x=Math.abs(x);let t=1/(1+.3275911*x);let y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-.284496736)*t+.254829592)*t*Math.exp(-x*x);return s*y}
+function cdf(z){return .5*(1+erf(z/Math.sqrt(2)))}
+function propCalc(){try{let m=+$("mean").value,sd=+$("sd").value,l=+$("line").value,o=+$("propOdds").value;if(!(sd>0)||!Number.isFinite(m+l)||o===0)throw Error("Check the mean, positive standard deviation, line, and odds.");let over=1-cdf((l-m)/sd),p=$("side").value==="over"?over:1-over,ip=implied(o),dec=o>0?1+o/100:1+100/(-o),ev=p*(dec-1)-(1-p);$("propResult").innerHTML=`<strong>${fmt(p*100)}% estimated ${$("side").value} probability</strong><div class="metric"><span>Opposite side</span><b>${fmt((1-p)*100)}%</b></div><div class="metric"><span>Market implied probability</span><b>${fmt(ip*100)}%</b></div><div class="metric"><span>Model edge</span><b class="${p-ip>=0?'good':'bad'}">${fmt((p-ip)*100)} pp</b></div><div class="metric"><span>EV per 1 unit</span><b class="${ev>=0?'good':'bad'}">${fmt(ev)} units</b></div><small>Normal approximation; assumes the entered mean and SD are reasonable.</small>`}catch(e){$("propResult").textContent=e.message}}
+function injuryCalc(){let bp=+$("basePts").value,dp=+$("deltaPts").value,bw=+$("baseWin").value,dw=+$("deltaWin").value;if(![bp,dp,bw,dw].every(Number.isFinite)||bw<0||bw>100){$("injResult").textContent="Check your inputs. Win probability must be between 0 and 100.";return}let w=Math.max(0,Math.min(100,bw+dw));$("injResult").innerHTML=`<strong>${$("injName").value||"Scenario"} </strong><div class="metric"><span>Adjusted team points</span><b>${fmt(bp+dp,1)}</b></div><div class="metric"><span>Adjusted win probability</span><b>${fmt(w,1)}%</b></div><small>Illustrative adjustment only. Enter your own assumptions; this is not a verified injury impact.</small>`}
+let picks=[];try{picks=JSON.parse(localStorage.getItem("binz_picks_v2")||"[]")}catch(e){picks=[]}
+function save(){localStorage.setItem("binz_picks_v2",JSON.stringify(picks));render()}
+function addPick(){let name=$("pickName").value.trim(),odds=+$("pickOdds").value,stake=+$("stake").value;if(!name||!Number.isFinite(odds)||odds===0||!(stake>0)){alert("Enter a pick, valid non-zero odds, and a stake greater than zero.");return}picks.unshift({id:Date.now(),name,odds,stake,notes:$("pickNotes").value,result:"Pending"});$("pickName").value="";$("pickNotes").value="";save()}
+function setResult(id,result){let p=picks.find(x=>x.id===id);if(p){p.result=result;save()}}
+function render(){let rows=$("pickRows");rows.innerHTML="";picks.forEach(p=>{let tr=document.createElement("tr");let td=document.createElement("td");td.textContent=p.name+(p.notes?" · "+p.notes:"");tr.appendChild(td);[p.odds,p.stake].forEach(v=>{let c=document.createElement("td");c.textContent=v;tr.appendChild(c)});let c=document.createElement("td"),sel=document.createElement("select");["Pending","Win","Loss","Push"].forEach(v=>{let op=document.createElement("option");op.value=v;op.textContent=v;if(p.result===v)op.selected=true;sel.appendChild(op)});sel.onchange=()=>setResult(p.id,sel.value);c.appendChild(sel);tr.appendChild(c);let del=document.createElement("td"),b=document.createElement("button");b.textContent="×";b.className="secondary";b.style.cssText="width:auto;margin:0;padding:5px 9px";b.onclick=()=>{picks=picks.filter(x=>x.id!==p.id);save()};del.appendChild(b);tr.appendChild(del);rows.appendChild(tr)});let wins=picks.filter(p=>p.result==="Win").length,loss=picks.filter(p=>p.result==="Loss").length,pending=picks.filter(p=>p.result==="Pending").length;$("trackerSummary").innerHTML=`<div class="metric"><span>Total picks</span><b>${picks.length}</b></div><div class="metric"><span>Wins / Losses</span><b>${wins} / ${loss}</b></div><div class="metric"><span>Pending</span><b>${pending}</b></div>`}
+function exportCSV(){if(!picks.length){alert("There are no picks to export yet.");return}let esc=s=>'"'+String(s??"").replace(/"/g,'""')+'"';let csv=[["Pick","Odds","Stake","Result","Notes"],...picks.map(p=>[p.name,p.odds,p.stake,p.result,p.notes])].map(r=>r.map(esc).join(",")).join("\n");let a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download="binz-picks.csv";a.click();URL.revokeObjectURL(a.href)}
+function clearPicks(){if(confirm("Delete all picks saved on this device?")){picks=[];save()}}
+render();
+if("serviceWorker" in navigator && location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
+</script>
+</body></html>
